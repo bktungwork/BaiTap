@@ -12,6 +12,11 @@ func Bai7(){
     if let input = readLine() {
         var arr = input.split(separator: " ")
         var count = arr.count
-        print("Ho va ten la: \(arr[0]) \(arr[count - 1])")
+        if arr.count == 1
+        {
+            print("Ho va ten la: \(arr[0])")
+        } else {
+            print("Ho va ten la: \(arr[0]) \(arr[count - 1])")
+        }
     }
 }

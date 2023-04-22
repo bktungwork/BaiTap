@@ -9,45 +9,45 @@ import Foundation
 
 // Bai 1
 
-print("Nhap vao so nguyen n:")
-let n = Int(readLine() ?? "") ?? 0
-
-if n > 0 {
-    print("\(n) là số nguyên dương.")
-} else {
-    print("\(n) không phải là số nguyên dương.")
-}
-
-if n % 2 == 0 {
-    print("\(n) là số chẵn.")
-} else {
-    print("\(n) không phải là số chẵn.")
-}
-
-if n % 5 == 0 {
-    print("\(n) chia hết cho 5.")
-} else {
-    print("\(n) không chia hết cho 5.")
-}
-
-if n < 2 {
-    print("\(n) không phải là số nguyên tố")
-} else if n == 2 || n == 3{
-    print("\(n) là số nguyên tố.")
-} else {
-    var isPrime = true
-    for i in 2...Int(sqrt(Double(n))) {
-        if n % i == 0 {
-            isPrime = false
-            break
-        }
-    }
-    if isPrime {
-        print("\(n) là số nguyên tố")
-    } else {
-        print("\(n) không phải là số nguyên tố")
-    }
-}
+//print("Nhap vao so nguyen n:")
+//let n = Int(readLine() ?? "") ?? 0
+//
+//if n > 0 {
+//    print("\(n) là số nguyên dương.")
+//} else {
+//    print("\(n) không phải là số nguyên dương.")
+//}
+//
+//if n % 2 == 0 {
+//    print("\(n) là số chẵn.")
+//} else {
+//    print("\(n) không phải là số chẵn.")
+//}
+//
+//if n % 5 == 0 {
+//    print("\(n) chia hết cho 5.")
+//} else {
+//    print("\(n) không chia hết cho 5.")
+//}
+//
+//if n < 2 {
+//    print("\(n) không phải là số nguyên tố")
+//} else if n == 2 || n == 3{
+//    print("\(n) là số nguyên tố.")
+//} else {
+//    var isPrime = true
+//    for i in 2...Int(sqrt(Double(n))) {
+//        if n % i == 0 {
+//            isPrime = false
+//            break
+//        }
+//    }
+//    if isPrime {
+//        print("\(n) là số nguyên tố")
+//    } else {
+//        print("\(n) không phải là số nguyên tố")
+//    }
+//}
 
 // Bai 2
 
@@ -91,31 +91,37 @@ if n < 2 {
 
 // Bai 4
 
-//print("Nhập vào thời điểm T theo dạng “Giờ : Phút : Giây”:")
-//let input = readLine() ?? ""
-//let timeInput = input.components(separatedBy: ":")
-//
-//var hour = 0, minute = 0, second = 0
-//
-//if let h = Int(timeInput[0].trimmingCharacters(in: .whitespacesAndNewlines)),
-//let m = Int(timeInput[1].trimmingCharacters(in: .whitespacesAndNewlines)),
-//   let s = Int(timeInput[2].trimmingCharacters(in: .whitespacesAndNewlines)) {
-//    hour = h
-//    minute = m
-//    second = s
-//    print("\(hour) Giờ : \(minute) Phút : \(second) Giây.")
-//} else {
-//    print("Định dạng đầu vào không đúng.")
-//}
-//
-//print("Nhập vào số nguyên X <= 10000:")
-//let X = Int(readLine() ?? "") ?? 0
-//let T = hour * 3600 + minute * 60 + second + X
-//
-//second = T % 60
-//minute = (T / 60) % 60
-//hour = T / 3600
-//print("Sau \(X) giây kể từ thời điểm ban đầu, thời gian hiện tại là: \(hour) Giờ : \(minute) Phút : \(second) Giây.")
+print("Nhập vào thời điểm T theo dạng “Giờ : Phút : Giây”:")
+let input = readLine() ?? ""
+let timeInput = input.components(separatedBy: ":")
+
+var hour = 0, minute = 0, second = 0
+
+if let h = Int(timeInput[0].trimmingCharacters(in: .whitespacesAndNewlines)),
+   let m = Int(timeInput[1].trimmingCharacters(in: .whitespacesAndNewlines)),
+   let s = Int(timeInput[2].trimmingCharacters(in: .whitespacesAndNewlines)) {
+    hour = h
+    minute = m
+    second = s
+    print("\(hour) Giờ : \(minute) Phút : \(second) Giây.")
+} else {
+    print("Định dạng đầu vào không đúng.")
+}
+
+print("Nhập vào số nguyên X <= 10000:")
+let X = Int(readLine() ?? "") ?? 0
+let T = hour * 3600 + minute * 60 + second + X
+
+second = T % 60
+minute = (T / 60) % 60
+
+if T / 3600 > 23 {
+    hour = (T / 3600) % 24
+} else {
+    hour = T / 3600
+}
+
+print("Sau \(X) giây kể từ thời điểm ban đầu, thời gian hiện tại là: \(hour) Giờ : \(minute) Phút : \(second) Giây.")
 
 // Bai 5
 
@@ -247,13 +253,21 @@ if n < 2 {
 
 // Bai 3 phần câu lệnh rẽ nhánh
 
-//print("Nhập điểm toán:")
-//let diemToan = Double(readLine() ?? "") ?? 0
-//print("Nhập điểm lý:")
-//let diemLy = Double(readLine() ?? "") ?? 0
-//print("Nhập điểm hoá:")
-//let diemHoa = Double(readLine() ?? "") ?? 0
-//
+//func nhapDiem(monHoc: String) -> Double{
+//    while true {
+//        print("Nhập điểm \(monHoc):")
+//        var diem = Double(readLine() ?? "") ?? 0
+//        if diem >= 0 && diem <= 10{
+//            return diem
+//        } else {
+//            print("Điểm \(monHoc) không hợp lệ, mời nhập lại!")
+//        }
+//    }
+//}
+
+//let diemToan = nhapDiem(monHoc: "Toán")
+//let diemLy = nhapDiem(monHoc: "Lý")
+//let diemHoa = nhapDiem(monHoc: "Hoá")
 //let diemTB = (diemToan + diemLy + diemHoa) / 3
 //
 //if diemTB < 5 {
@@ -267,4 +281,3 @@ if n < 2 {
 //} else {
 //    print("Học lực Xuất sắc")
 //}
-
